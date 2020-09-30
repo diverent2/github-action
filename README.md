@@ -504,7 +504,8 @@ By default, `wait-on` will retry for 60 seconds. You can pass a custom timeout i
 
 ### Command prefix
 
-You can prefix the default test command using the `command-prefix` option. This is useful for example when running [Percy](https://docs.percy.io/docs/cypress), which requires the test command to be wrapped with `percy exec --`.
+You can prefix the default test command using the `command-prefix` option. This is useful for example when running [
+](https://docs.percy.io/docs/cypress), which requires the test command to be wrapped with `percy exec --`.
 
 ```yml
 name: Visual
@@ -524,6 +525,9 @@ jobs:
           # the entire command will automatically be prefixed with "npm"
           # and we need the second "npm" to execute "cypress run ..." command line
           command-prefix: 'percy exec -- npx'
+        env:
+          # use your secret token to run percy tests
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 ```
 
 See live example [angular-pizza-creator](https://github.com/cypress-io/angular-pizza-creator).
