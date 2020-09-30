@@ -524,6 +524,9 @@ jobs:
           # the entire command will automatically be prefixed with "npm"
           # and we need the second "npm" to execute "cypress run ..." command line
           command-prefix: 'percy exec -- npx'
+        env:
+          # use your secret token to run percy tests
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 ```
 
 See live example [angular-pizza-creator](https://github.com/cypress-io/angular-pizza-creator).
@@ -739,7 +742,7 @@ jobs:
 Sometimes you may want to run additional commands between installation and tests. To enable this use the `install` and `runTests` parameters.
 
 ```yml
-name: E2E
+name: E2Ex
 on: push
 jobs:
   test:
